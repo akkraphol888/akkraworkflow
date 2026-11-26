@@ -1,114 +1,58 @@
-# akkraworkflow website
+# akkraworkflow website v2
 
-A bilingual (English / Thai) React + Vite business portfolio website with a dark premium cybersecurity visual direction.
+A React + Vite bilingual landing page focused on Google Sheets workflow automation.
 
-## Requirements
+## Current launch scope
 
-- Windows 11
-- Node.js LTS (recommended: Node.js 20 or 22)
-- npm (included with Node.js)
-- Git (optional, for GitHub deployment)
+- Google Sheets workflow systems
+- Google Apps Script automation
+- Gmail notifications and reminders
+- Simple dashboards and reports
+- Workflow discovery, setup, and handover
 
-## Run locally on Windows 11
+Cybersecurity services and other products are intentionally marked as not yet available. Portfolio cards and dashboard numbers are illustrative demo concepts, not completed client projects.
 
-1. Install Node.js LTS from https://nodejs.org/
-2. Extract the ZIP file.
-3. Open the extracted `akkraworkflow` folder.
-4. In File Explorer, click the address bar, type `cmd`, and press Enter.
-5. Run:
+## Run locally
+
+Requirements: Node.js LTS (18+ recommended) and npm.
 
 ```bash
 npm install
 npm run dev
 ```
 
-6. Open the local URL shown in the terminal, normally `http://localhost:5173`.
+Open the local URL printed by Vite (normally http://localhost:5173).
 
-To test the production build:
+## Production build
 
 ```bash
 npm run build
 npm run preview
 ```
 
-The production files will be generated in the `dist` folder.
+The static production output is written to `dist/`.
 
-## Important: update contact details
+## Deploy to Cloudflare Pages
 
-Open `src/App.jsx` and find:
+Connect this repository to Cloudflare Pages and use:
 
-```js
-const email = 'hello@akkraworkflow.com'
-```
+- Framework preset: Vite
+- Build command: `npm run build`
+- Build output directory: `dist`
+- Production branch: `main`
 
-Replace it with an email address you control before publishing. The current address is a placeholder; do not publish it as a working contact until you own/configure it.
+Every push to `main` triggers a new deployment when Git integration is enabled.
 
-The social links are intentionally not fabricated. Add verified business profile URLs when they exist.
+## Before public launch — important
 
-## Deploy to Cloudflare Pages (free plan)
-
-### Option A — GitHub integration (recommended)
-
-1. Create a GitHub account if you do not already have one: https://github.com/
-2. Create a new repository, for example `akkraworkflow`.
-3. Upload the project files to the repository. Do not upload `node_modules` or `dist`.
-4. Sign in to Cloudflare Dashboard: https://dash.cloudflare.com/
-5. Open **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
-6. Authorize GitHub and select the `akkraworkflow` repository.
-7. Set the build configuration:
-
-   - Framework preset: `Vite`
-   - Build command: `npm run build`
-   - Build output directory: `dist`
-   - Root directory: `/` (leave default)
-
-8. Select **Save and Deploy**.
-9. Cloudflare will provide a URL similar to `https://akkraworkflow.pages.dev`.
-
-After this, each push to the connected branch triggers a new deployment.
-
-### Option B — Direct upload
-
-1. Run `npm install` and `npm run build` locally.
-2. Sign in to Cloudflare Dashboard.
-3. Open **Workers & Pages** → **Create** → **Pages** → **Upload assets**.
-4. Give the project a name such as `akkraworkflow`.
-5. Upload the contents of the generated `dist` folder.
-6. Deploy and use the generated `*.pages.dev` address.
-
-For ongoing updates, Git integration is easier to maintain.
-
-## Project structure
-
-```text
-akkraworkflow/
-├── public/
-│   ├── _redirects
-│   └── favicon.svg
-├── src/
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── styles.css
-├── .gitignore
-├── index.html
-├── package.json
-├── vite.config.js
-└── README.md
-```
-
-## Before accepting real customer work
-
-- Replace the placeholder contact email.
-- Publish only services you can currently deliver.
-- Define scope, delivery time, revision count, and payment terms in writing.
-- Do not collect customer passwords or API secrets in forms or spreadsheets.
-- For Google integrations, use least-privilege OAuth permissions and explain what data is accessed.
-- Add a privacy notice before collecting personal information.
-- The Smart Workflow Tracker shown on the site is currently a product concept / preview, not a live SaaS application.
-- The website does not currently include checkout, customer accounts, a backend, or a contact form. Contact uses the visitor's email application via `mailto:`.
+1. In `src/App.jsx`, replace `hello@akkraworkflow.com` in `emailAddress` with the real inbox you want to receive inquiries at. The current value is retained from v1 and must be verified by the site owner.
+2. Check the quote form by filling it in. It opens the visitor's default email application with a prefilled draft; it does not save submissions to a database or send mail silently.
+3. Replace demo concepts and sample dashboard numbers only after you have real portfolio work or a finished product. Until then, keep the DEMO labels visible.
+4. If you use a custom domain later, update the canonical URL and Open Graph URL in `index.html`.
+5. The page includes basic metadata and JSON-LD structured data. Search indexing and ranking are not guaranteed; add a sitemap and Google Search Console property after choosing a final domain.
 
 ## Notes
 
-- Language toggle works locally in the browser state; no translation API is used.
-- Google Fonts are loaded from Google Fonts. If a visitor blocks external fonts, system fallback fonts are used.
-- Cloudflare Pages free-plan limits and product features can change. Check the current Cloudflare documentation before production deployment.
+- No backend, user accounts, checkout, or database is included.
+- The quote form uses `mailto:` so the visitor reviews and sends the email from their own email client.
+- The initial language is Thai; visitors can switch to English from the header.
